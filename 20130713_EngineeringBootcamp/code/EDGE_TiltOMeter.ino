@@ -103,7 +103,10 @@ void loop()
 int GetCenterPWMVal( int zvalue )
 {
     zvalue = zvalue * 2;
-
+    
+    // A PWM needs to write a value between 0-255.
+    // In the case we get a reading outside that range,
+    // we need to adjust the reading.
     if (zvalue < 0)
     {
         zvalue = 0;
